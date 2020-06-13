@@ -1,0 +1,14 @@
+version: "2"
+services:
+  ranchervm:
+    image: rancher/ranchervm
+    container_name: ranchervm
+    volumes:
+      # - /mnt/storage/containers/resilio-sync/config:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/ranchervm:/ranchervm
+    ports:
+      - 8082:80
+    restart: unless-stopped
+    labels:
+      - "traefik.http.routers.ranchervm.rule=Host(`vm.tlss1.lan`)"
