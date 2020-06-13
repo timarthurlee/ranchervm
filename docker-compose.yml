@@ -4,7 +4,6 @@ services:
     image: rancher/ranchervm
     container_name: ranchervm
     volumes:
-      # - /mnt/storage/containers/resilio-sync/config:/config
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/ranchervm:/ranchervm
     ports:
